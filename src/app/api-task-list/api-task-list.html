@@ -1,0 +1,33 @@
+<div class="task-container">
+    <h2>Sugestões da API REST (via toSignal)</h2>
+
+    @if (sugestions().length === 0) {
+    <p>A carregar sugestões da API...</p>
+    } @else {
+    <ul>
+        @for (sugestao of sugestions(); track $index) {
+        <li>
+            <span>{{ sugestao }}</span>
+            <button type="button" (click)="addTask(sugestao)">Importar</button>
+        </li>
+        }
+    </ul>
+    }
+
+    <hr>
+
+    <h2>As Minhas Tarefas Importadas ({{ tasks().length }})</h2>
+
+    @if (tasks().length === 0) {
+    <p>Clica em "Importar" numa sugestão acima para a adicionar aqui.</p>
+    } @else {
+    <ul>
+        @for (task of tasks(); track $index) {
+        <app-task-item 
+            [task]="task" 
+            (remove)="removeTask($index)">
+        </app-task-item>
+        }
+    </ul>
+    }
+</div>

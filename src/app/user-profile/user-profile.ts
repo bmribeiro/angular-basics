@@ -1,7 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  imports: [],
+  imports: [DatePipe],
   standalone: true,
   selector: 'app-user-profile',
   styleUrl: './user-profile.css',
@@ -11,6 +12,7 @@ export class UserProfile {
   name: string = 'Bruno';
   position: string = 'Developer';
   fotoUrl: string = 'https://via.placeholder.com/150';
+  date: Date = new Date();
 
   promote() {
     this.position = 'Senior Developer';

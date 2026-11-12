@@ -21,10 +21,12 @@
   } @else {
     <ul>
       @for (task of tasks(); track $index) {
-        <li>
-          {{ task }}
-          <button (click)="removeTask($index)">Remove</button>
-        </li>
+
+        <app-task-item 
+          [task]="task" 
+          (remove)="removeTask($index)">
+        </app-task-item>
+        
       }
     </ul>
   }

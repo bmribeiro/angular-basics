@@ -7,6 +7,9 @@
   <h2>{{ name }}</h2>
   <p>Position: {{ position }}</p>
 
+  <!-- DatePipe formats the Date object using the Portuguese date format -->
+  <p>Member since: {{ date | date:'dd/MM/yyyy' }}</p>
+
   <!-- Event Binding: (click) listens for mouse clicks and executes the promote() method -->
   <button (click)="promote()">Promote User</button>
 </div>

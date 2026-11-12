@@ -9,9 +9,25 @@
         <a routerLink="/home" routerLinkActive="active">My Profile</a>
       </li>
       <li>
-        <a routerLink="/tarefas" routerLinkActive="active">Task Management</a>
+        <a routerLink="/tasks" routerLinkActive="active">Tasks - Memory</a>
+      </li>
+      <li>
+        <a routerLink="/tasks-persistent" routerLinkActive="active">Tasks - Persistent</a>
+      </li>
+      <li>
+        <a routerLink="/task-api" routerLinkActive="active">Tasks - API REST</a>
       </li>
     </ul>
+
+    <div class="auth-status">
+      @if (authService.isAuthenticated()) {
+      <span>Authenticated</span>
+      <button type="button" (click)="authService.logout()">Logout</button>
+      } @else {
+      <span>Visitante</span>
+      <button type="button" (click)="authService.login()">Login</button>
+      }
+    </div>
   </nav>
 
   <!-- Dynamic Content Container -->

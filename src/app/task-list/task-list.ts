@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { Task } from '../services/task';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TaskItem } from '../task-item/task-item';
 
 @Component({
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TaskItem],
   standalone: true,
   selector: 'app-task-list',
   styleUrl: './task-list.css',
@@ -11,7 +12,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class TaskList {
   private taskService = inject(Task);
-
   tasks = this.taskService.tasks;
 
   // Form Structure
