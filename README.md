@@ -1,59 +1,92 @@
-# AngularQuest
+# 🚀 Angular Basics
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.6.
+Repository developed as a practical, progressive guide to consolidate core **modern Angular** concepts and prepare for technical interviews.
 
-## Development server
+The project is built using the **Standalone Components** architecture, focusing on the framework's current best practices (fine-grained reactivity with Signals, new built-in control flow syntax, and modern dependency injection).
 
-To start a local development server, run:
+## 🛠️ Technologies Used
 
-```bash
-ng serve
+* **Angular** (v22+)
+* **TypeScript**
+* **HTML5 & CSS3**
+
+## 📚 Progression and Implemented Concepts
+
+The project is structured into 5 progressive learning levels:
+
+### Level 1: Components and Data Binding
+
+* **Component:** `UserProfileComponent`
+* **Concepts:** *Standalone* architecture, Text Interpolation (`{{ }}`), *Property Binding* (`[src]`) for dynamic attributes, and *Event Binding* (`(click)`) for user interaction.
+
+### Level 2: Reactivity with Signals and Modern Control Flow
+
+* **Component:** `TaskListComponent`
+* **Concepts:**
+  * Synchronous reactive state management using `signal()` and immutable updates via `.update()` and `.filter()`.
+  * Replacing legacy structural directives (`*ngIf`, `*ngFor`) with the new built-in **`@if`**, **`@else`**, and **`@for`** syntax (with mandatory optimization via `track`).
+
+### Level 3: Services and Dependency Injection
+
+* **Service:** `TaskService` (`providedIn: 'root'`)
+* **Concepts:**
+  * *Separation of Concerns*: Extracting business logic and state into a centralized service (*Singleton* pattern), keeping components focused strictly on presentation.
+  * Modern dependency injection using the **`inject()`** function instead of the traditional constructor.
+  * Immutable array manipulation using the *Spread Operator* (`[...]`).
+
+### Level 4: Data Validation with Reactive Forms
+
+* **Module:** `ReactiveFormsModule`
+* **Concepts:**
+  * Programmatic creation of typed forms using `FormGroup` and `FormControl` (ensuring TypeScript is the single source of truth).
+  * Applying synchronous validations (`Validators.required`, `Validators.minLength`).
+  * Conditional visual feedback based on form states (`.invalid`, `.touched`) and state clearing with `.reset()`.
+
+### Level 5: Navigation (Routing)
+
+* **Configuration:** `app.routes.ts`
+* **Concepts:**
+  * Transforming the application into a seamless *Single Page Application* (SPA) without full-page reloads.
+  * Route mapping, redirects (`redirectTo`), *wildcard* routes (`**`) for handling invalid URLs, and utilizing `<router-outlet>`, `routerLink`, and `routerLinkActive` directives.
+
+## 📂 Main Project Structure
+
+```text
+src/app/
+├── services/
+│   └── task.service.ts        # Centralized task state management (Signals)
+├── task-list/                 # Task listing and reactive form component
+├── user-profile/              # Profile component with basic Data Binding
+├── app.component.*            # Main layout and navigation menu
+└── app.routes.ts              # Application route definitions
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 💻 How to Run Locally
 
-## Code scaffolding
+To run this project on your machine, make sure you have **Node.js** and the **Angular CLI** installed.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. **Clone the repository:**
 
-```bash
-ng generate component component-name
-```
+   ```bash
+   git clone https://github.com/your-username/angular-basics.git
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. **Navigate to the project directory:**
 
-```bash
-ng generate --help
-```
+   ```bash
+   cd angular-basics
+   ```
 
-## Building
+3. **Install dependencies:**
 
-To build the project run:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng build
-```
+4. **Start the development server:**
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+   ```bash
+   ng serve -o
+   ```
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   The application will automatically open at `http://localhost:4200/`.

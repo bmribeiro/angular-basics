@@ -1,0 +1,12 @@
+<div class="profile-card">
+
+  <!-- Property Binding: [src] binds the fotoUrl property to the image's src attribute -->
+  <img [src]="fotoUrl" alt="Profile Picture">
+
+  <!-- Interpolation: {{ }} displays variable values as text -->
+  <h2>{{ name }}</h2>
+  <p>Position: {{ position }}</p>
+
+  <!-- Event Binding: (click) listens for mouse clicks and executes the promote() method -->
+  <button (click)="promote()">Promote User</button>
+</div>

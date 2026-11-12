@@ -1,0 +1,31 @@
+<div class="task-container">
+  <h2>My Task List (Using a Service)</h2>
+
+  <form [formGroup]="newTaskForm" (ngSubmit)="onSubmit()">
+
+    <label for="title">New task:</label>
+    <input formControlName="title" placeholder="Enter a task...">
+
+    <label for="priority">Priority:</label>
+    <select formControlName="priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <button type="submit" [disabled]="newTaskForm.invalid">Add</button>
+  </form>
+
+  <!-- The presentation logic (Control Flow) remains unchanged -->
+  @if (tasks().length === 0) {
+    <p>No pending tasks!</p>
+  } @else {
+    <ul>
+      @for (task of tasks(); track $index) {
+        <li>
+          {{ task }}
+          <button (click)="removeTask($index)">Remove</button>
+        </li>
+      }
+    </ul>
+  }
+</div>
